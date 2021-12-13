@@ -1,1 +1,1 @@
-const cutString = (string, limit) => string.length < limit ? string : `${string.slice(0, limit)}...`
+const cutString = (text, availableChars) => text.length < availableChars ? text : `${text.slice(0, availableChars)}...`

@@ -15,20 +15,40 @@ const users = [
       gender: 'male',
       ip_address: '229.179.4.212',
     },
+    {
+      id: 2,
+      first_name: 'Petr',
+      last_name: 'Jackson',
+      email: 'gfrediani1@senate.gov',
+      gender: 'gmf',
+      ip_address: '229.179.4.212',
+    },
   ];
   
-const sortByGender = (users) => {
-    let sortedUsers = {
-        men: [],
-        women: []
-    }
-    let usersCopy = [...users]
-    usersCopy.map(user => {
-        user.full_name = `${user.first_name} ${user.last_name}`
-        delete user.first_name
-        delete user.last_name
-    })
-    usersCopy.forEach(user => user.gender === 'male' ? sortedUsers.men.push(user) : sortedUsers.women.push(user))
+// const sortByGender = (users) => {
+//     let sortedUsers = {
+//         men: [],
+//         women: []
+//     }
+//     let usersCopy = [...users]
+//     usersCopy.map(user => {
+//         user.full_name = `${user.first_name} ${user.last_name}`
+//         delete user.first_name
+//         delete user.last_name
+//     })
+//     usersCopy.forEach(user => user.gender === 'male' ? sortedUsers.men.push(user) : sortedUsers.women.push(user))
 
-    return sortedUsers
+//     return sortedUsers
+// }
+
+const divideUsersByGender = (userList) => {
+  return userList.reduce((result, user) => {
+    const {first_name, last_name, ...otherFileds} = user
+    const updatedUser = {
+      full_name:`${first_name} ${last_name}`,
+      otherFileds
+    }
+   result[updatedUser.gender] = result[updatedUser.gender]
+   ? [...result[updatedUser.gender], updatedUser] : [updatedUser]
+  })
 }

@@ -21,13 +21,21 @@ const boxarts = [
     }
   ];
 
-boxarts.map(box => {
-    box.square = box.width * box.height
-})
+// boxarts.map(box => {
+//     box.square = box.width * box.height
+// })
 
-const biggestSquare = boxarts.reduce((acc, box) => {
-    acc.square < box.square ? acc = box : acc
-    return acc
-}, boxarts[0]).url
+// const biggestSquare = boxarts.reduce((acc, box) => {
+//     acc.square < box.square ? acc = box : acc
+//     return acc
+// }, boxarts[0]).url
 
-console.log(biggestSquare)
+// console.log(biggestSquare)
+const getSquare = ({height, width}) => height * width
+const findMaxSquareUrl = (imageList) => {
+  return imageList.reduce((prevImg, currImg) => {
+    const prevSquare = getSquare(prevImg)
+    const currSquare = getSquare(currImg)
+    return prevSquare > currSquare ? prevImg : currImg
+  }).url
+}

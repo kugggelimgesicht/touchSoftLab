@@ -1,9 +1,7 @@
-const describeElements = (array) => {
-
-    const elements = array.map((item, index) => ({
+const getItemsDescription = (mixedDataList) => {
+    return mixedDataList.map((item, index) => ({
         elementValue: item,
         elementType: typeof item,
-        elementIndex: index
+        index
     }))
-    return elements
 }
