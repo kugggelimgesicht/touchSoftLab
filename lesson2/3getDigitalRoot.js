@@ -1,0 +1,1 @@
+const getDigitalRoot = number => number.toString().split('').reduce((prevNumber, currNumber) => +prevNumber + (+currNumber))
