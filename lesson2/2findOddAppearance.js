@@ -8,4 +8,4 @@
 // }
 
 const findOddAppearance = numbersList => {
-  return  numbersList.find((number) => numbersList.filter(n => n === number).length % 2)}
+  return  numbersList.find((numberToFind) => numbersList.filter(numberToFilter => numberToFilter === numberToFind).length % 2)}
